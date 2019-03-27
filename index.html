@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>Giphy API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id="button-row">
+          <button data-games="Tetris">Tetris</button>
+          <button data-games="PacMan">PacMan</button>
+          <button data-games="Zelda">Zelda</button>
+          <button data-games="Mario Bros">Mario Bros</button>
+          <button data-games="Excitebike">Excitebike</button>
+          <button data-games="KungFu">KungFu</button>
+          <button data-games="TecmoBowl">Tecmo Bowl</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-9" id="gifs-appear-here"></div>
+        
+        <div class="col-lg-3">
+          <form id="add-form">
+            <div class="form">
+              <label for="addGame">Add a Game</label>
+              <input type="text" class="form-control" id="addGame">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+    <script src="assets/javascript/app.js"></script>
+  </body>
+
+</html>
