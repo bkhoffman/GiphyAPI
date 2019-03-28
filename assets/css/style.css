@@ -1,13 +1,16 @@
+h1{
+  text-align: center;
+}
 #button-row{
   padding: 20px;
   margin: 20px;
 }
 
 #add-form{
-  margin: 0 20px 10px 0;
+  margin: 15px 20px 10px 20px;
 }
 #game-input{
-  margin-bottom: 3px;
+  margin-bottom: 12px;
 }
 .game-btn{
   width: 150px;
@@ -19,4 +22,9 @@
 div1{
 	display: inline-block;
 	margin: 10px;
+}
+
+#favBtn{
+  font-size: 10px;
+  margin-left: 10px;
 }

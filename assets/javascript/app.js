@@ -31,12 +31,14 @@ function addButtons(){
   }
 };
 addButtons(); //show the first 2 games already in the array
+
 //on click of any game-btn class, calls displayGameInfo function. Adds game name to API search request
 $(document).on("click", ".game-btn", displayGameInfo);
 function displayGameInfo(){
   $("#gifs").empty();
   var game = $(this).attr("data-name");
   console.log(game);
+  console.log("Current Array: ", games);
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
   game + "&api_key=4lFSaa0iSlhmwIzo4zr2MBrI6tDZ2Ebh&limit=10";
 
@@ -51,7 +53,7 @@ function displayGameInfo(){
       if(results[i].rating !== "r" && results[i].rating !== "pg-13"){
         var gifDiv = $("<div1>");
         var rating = results[i].rating;
-        var p = $("<p>").text("Rating: " + rating);
+        var p = $("<p>").text("Rating: " + rating).append($("<button id=favBtn>").text("Favorite"));;
         var gifImg = $("<img>");
         
         gifImg.attr("src", results[i].images.fixed_height_still.url); //added the still image for initial gif
@@ -63,6 +65,7 @@ function displayGameInfo(){
         gifDiv.append(gifImg);
         gifDiv.append(p);
         $("#gifs").append(gifDiv);
+        
       }
     }
   });
@@ -79,4 +82,10 @@ $(document).on("click", ".gifImage", function() {
     $(this).attr("src", $(this).attr("data-still"));
     $(this).attr("data-state", "still");
   }
+});
+
+$(document).on("click", "#favBtn", function() {
+  console.log("clicked")
+  //$("#favGifs").append(gifDiv);
+  
 });

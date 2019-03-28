@@ -12,6 +12,9 @@
   </head>
 
   <body>
+    <header>
+      <h1>Classic Game Giphy</h1>
+    </header>
     <div class="container">
       <div class="row">
         <div class="col-lg-12" id="button-row">
@@ -20,16 +23,24 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-9" id="gifs"></div>
-
           <div class="col-lg-3">
-            <form id="add-form">
-              <div class="form">
-                <label for="game-input">Add a Game</label>
-                <input type="text" class="form-control" id="game-input">
+            <div class="card">
+              <form id="add-form">
+                <div class="form">
+                  <label for="game-input">Add a Game</label>
+                  <input type="text" class="form-control" id="game-input">
+                </div>
+                <button type="submit" class="btn btn-primary" id="addGame">Submit</button>
+                <button type="remove" class="btn btn-primary" id="removeGame">Remove</button>
+              </form>
+            </div>
+            <br>
+            <div class="card">
+                <div class="card-header">
+                  Favorites
+                </div>
+                <div class="card-body" id="favGifs"></div>
               </div>
-              <button type="submit" class="btn btn-primary" id="addGame">Submit</button>
-              <button type="remove" class="btn btn-primary" id="removeGame">Remove</button>
-            </form>
           </div>
         </div>
       </div>
