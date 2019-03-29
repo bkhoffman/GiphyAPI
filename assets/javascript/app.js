@@ -7,13 +7,13 @@ $("#addGame").on("click", function(event){
   console.log(newGame);
   games.push(newGame);
   console.log(games);
+  $("#game-input").val("");
   addButtons();
 });
 //remove the last game in array
 $("#removeGame").on("click", function(event){
   event.preventDefault();
-  var removeGame = $("#game-input").val().trim();
-  games.pop(removeGame);
+  games.pop();
   $("#gifs").empty();
   addButtons();
 });
@@ -53,24 +53,29 @@ function displayGameInfo(){
       if(results[i].rating !== "r" && results[i].rating !== "pg-13"){
         var gifDiv = $("<div1>");
         var rating = results[i].rating;
-        var p = $("<p>").text("Rating: " + rating).append($("<button id=favBtn>").text("Favorite"));;
+        
         var gifImg = $("<img>");
+        var gifFav = $("<button id=favBtn>").text("Favorite");//add var for favorite button
+        var p = $("<p>").text("Rating: " + rating).append(gifFav);
         
         gifImg.attr("src", results[i].images.fixed_height_still.url); //added the still image for initial gif
         gifImg.attr("data-state", "still"); //added the state
         gifImg.attr("data-still", results[i].images.fixed_height_still.url); //added the still image
         gifImg.attr("data-animate", results[i].images.fixed_height.url); //added the animated image
         gifImg.addClass("gifImage")
+        gifFav.addClass("favBtn") //added class to call for fav button
+        gifFav.attr("src", results[i].images.fixed_width_small.url) //added gif src from response
 
         gifDiv.append(gifImg);
         gifDiv.append(p);
-        $("#gifs").append(gifDiv);
-        
+        gifDiv.append(gifFav);
+        $("#gifs").append(gifDiv); 
       }
     }
   });
 };
 
+//click the gif to change the state
 $(document).on("click", ".gifImage", function() {
   console.log("clicked")
   var state = $(this).attr("data-state");
@@ -84,8 +89,17 @@ $(document).on("click", ".gifImage", function() {
   }
 });
 
-$(document).on("click", "#favBtn", function() {
-  console.log("clicked")
-  //$("#favGifs").append(gifDiv);
-  
+//Favorite button adds smaller version of gif to the Favorites area
+$(document).on("click", ".favBtn", function() { 
+  var favImg = $("<img id=miniGif>")
+  var favorite = $(this).attr("src");
+  favImg.attr("src", favorite)
+  console.log("Favorite src: ", favorite);
+  $("#favGifs").append(favImg);
+});
+
+//clear button for the Favorites
+$("#clearFav").on("click", function(event){
+  event.preventDefault();
+  $("#favGifs").empty();
 });
