@@ -56,7 +56,7 @@ function displayGameInfo(){
         
         var gifImg = $("<img>");
         var gifFav = $("<button id=favBtn>").text("Favorite");//add var for favorite button
-        var p = $("<p>").text("Rating: " + rating).append(gifFav);
+        var p = $("<p>").text("Rating: " + rating).append(gifFav); 
         
         gifImg.attr("src", results[i].images.fixed_height_still.url); //added the still image for initial gif
         gifImg.attr("data-state", "still"); //added the state
@@ -68,7 +68,6 @@ function displayGameInfo(){
 
         gifDiv.append(gifImg);
         gifDiv.append(p);
-        gifDiv.append(gifFav);
         $("#gifs").append(gifDiv); 
       }
     }
